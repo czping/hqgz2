@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/hqgz2/Public/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/hqgz3/Public/layui/css/layui.css" media="all">
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
     <style>
         .footer {
@@ -126,8 +126,8 @@
     Logistics Information Office ZhangPing Version:20190718
 
 </div>
-<script src="/hqgz2/Public/layui/layui.js"></script>
-<script src="/hqgz2/Public/layui/jquery.min.js"></script>
+<script src="/hqgz3/Public/layui/layui.js"></script>
+<script src="/hqgz3/Public/layui/jquery.min.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
     //Demo
