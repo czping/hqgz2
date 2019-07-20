@@ -6,9 +6,9 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="/hqgz2/Public/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/hqgz2/Public/layui/css/admin.css" media="all">
-    <link rel="stylesheet" href="/hqgz2/Public/layui/css/login.css" media="all">
+    <link rel="stylesheet" href="/hqgz3/Public/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/hqgz3/Public/layui/css/admin.css" media="all">
+    <link rel="stylesheet" href="/hqgz3/Public/layui/css/login.css" media="all">
 </head>
 <body>
 
@@ -16,7 +16,7 @@
 
     <div class="layadmin-user-login-main">
         <div class="layadmin-user-login-box layadmin-user-login-header">
-            <img src="/hqgz2/Public/images/houqin.png" style="width: 40%">
+            <img src="/hqgz3/Public/images/houqin.png" style="width: 40%">
             <h2>后勤职工薪资查询系统</h2>
             <p>Logistics Information Office  </p>
         </div>
@@ -51,8 +51,8 @@
 
 </div>
 
-<script src="/hqgz2/Public/layui/layui.js"></script>
-<script src="/hqgz2/Public/layui/jquery.min.js"></script>
+<script src="/hqgz3/Public/layui/layui.js"></script>
+<script src="/hqgz3/Public/layui/jquery.min.js"></script>
 <script>
 //Demo
 layui.use('form', function(){
