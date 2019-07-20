@@ -1,0 +1,84 @@
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>登入 - 后勤职工薪资查询系统</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/hqgz2/Public/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/hqgz2/Public/layui/css/admin.css" media="all">
+    <link rel="stylesheet" href="/hqgz2/Public/layui/css/login.css" media="all">
+</head>
+<body>
+
+<div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
+
+    <div class="layadmin-user-login-main">
+        <div class="layadmin-user-login-box layadmin-user-login-header">
+            <img src="/hqgz2/Public/images/houqin.png" style="width: 40%">
+            <h2>后勤职工薪资查询系统</h2>
+            <p>Logistics Information Office  </p>
+        </div>
+        <form class="layui-form" action="" id="login_from">
+        <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+            <div class="layui-form-item">
+                <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+                <input type="text" name="username" id="LAY-user-login-username" lay-verify="required" placeholder="身份证号码" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+                <input type="password" name="password" id="LAY-user-login-password" lay-verify="required" placeholder="密码" class="layui-input">
+                <p class="">初始密码为身份证后六位</p>
+            </div>
+
+
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="login-submit">登 入</button>
+            </div>
+
+        </div>
+    </form>
+    </div>
+
+    <div class="layui-trans layadmin-user-login-footer">
+
+        <p>© 2019 <a href="http://hq.just.edu.cn/" target="_blank">hq.just.edu.cn</a></p>
+
+    </div>
+
+
+
+</div>
+
+<script src="/hqgz2/Public/layui/layui.js"></script>
+<script src="/hqgz2/Public/layui/jquery.min.js"></script>
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(login-submit)', function(data){
+   // layer.msg(JSON.stringify(data.field));
+
+      $.ajax({
+          type:"post",
+          url:"<?php echo U('Home/Index/Logincheck');?>",
+          data:$('#login_from').serializeArray(),
+          dataType:'json',
+          success:function(data){
+              if(data=='ok'){
+                  window.location.href = "<?php echo U('Detail/Index');?>";
+              }else{
+              layer.msg(data);
+              }
+          }
+      });
+      return false;
+
+  });
+});
+</script>
+</body>
+</html>
