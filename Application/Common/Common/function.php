@@ -1,4 +1,7 @@
 <?php
+/**
+ * @return boolean
+ */
  function is_login()
 {
     $user = session('idcard');
