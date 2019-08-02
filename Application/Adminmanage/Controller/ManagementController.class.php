@@ -12,7 +12,7 @@ class ManagementController extends Controller {
     }
     public function Index(){
 
-       // $this->display('Index/Index');
+        $this->display('Home/Index');
     }
     public function Console(){
        $this->display('Home/Homepage2');
@@ -32,10 +32,10 @@ class ManagementController extends Controller {
     public function Import(){
         $this->display('Home/Import');
     }
-    public function userinfo(){
+    public function Userinfo(){
         $this->display('Set/User/Info');
     }
-    public function userpasswd(){
+    public function Userpasswd(){
         $this->display('Set/User/Password');
     }
 

@@ -64,12 +64,12 @@ layui.use('form', function(){
 
       $.ajax({
           type:"post",
-          url:"<?php echo U('Home/Index/Logincheck');?>",
+          url:"<?php echo U('Adminmanage/Index/Logincheck');?>",
           data:$('#login_from').serializeArray(),
           dataType:'json',
           success:function(data){
               if(data=='ok'){
-                  window.location.href = "<?php echo U('Detail/Index');?>";
+                  window.location.href = "<?php echo U('Management/Index');?>";
               }else{
               layer.msg(data);
               }
