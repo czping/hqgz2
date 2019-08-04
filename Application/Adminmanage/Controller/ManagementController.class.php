@@ -19,7 +19,22 @@ class ManagementController extends Controller {
     }
     public function AccountManage()
     {
+        $db=M('accounts');
+        $depts=$db->group('部门名称')->order('部门名称 asc')->field('部门名称')->select();
+        $this->assign("depts",$depts);
         $this->display('User/User/List');
+    }
+    public function Accountlist()
+    {
+        if(IS_AJAX) {
+            $db=M('accounts');
+            $allaccounts=$db->order('部门名称 asc')->select();
+            $data['code']=0;
+            $data['msg']='';
+            $data['count']=$db->count();
+            $data['data']=$allaccounts;
+            $this->ajaxReturn($data);
+    }
     }
     public function Query1()
     {

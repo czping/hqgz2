@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,8 +6,8 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="__PUBLIC__/layuiadmin/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/layuiadmin/style/admin.css" media="all">
+    <link rel="stylesheet" href="/hqgz3/Public/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/hqgz3/Public/layuiadmin/style/admin.css" media="all">
 
 
 </head>
@@ -50,10 +50,10 @@
                         <cite>张平</cite>
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a lay-href="{:U('Management/Userinfo')}">基本资料</a></dd>
-                        <dd><a lay-href="{:U('Management/Userpasswd')}">修改密码</a></dd>
+                        <dd><a lay-href="<?php echo U('Management/Userinfo');?>">基本资料</a></dd>
+                        <dd><a lay-href="<?php echo U('Management/Userpasswd');?>">修改密码</a></dd>
                         <hr>
-                        <dd layadmin-event="logout" style="text-align: center;"><a lay-href="{:U('Index/Loginout')}">退出</a></dd>
+                        <dd layadmin-event="logout" style="text-align: center;"><a lay-href="<?php echo U('Index/Loginout');?>">退出</a></dd>
                     </dl>
                 </li>
 
@@ -67,7 +67,7 @@
         <!-- 侧边菜单 -->
         <div class="layui-side layui-side-menu">
             <div class="layui-side-scroll">
-                <div class="layui-logo" lay-href="{:U('Management/Console')}">
+                <div class="layui-logo" lay-href="<?php echo U('Management/Console');?>">
                     <span>
                     后勤薪资管理系统
                     </span>
@@ -84,19 +84,19 @@
                             <dd data-name="query">
                                 <a href="javascript:;">薪资查询</a>
                                 <dl class="layui-nav-child">
-                                    <dd><a lay-href="{:U('Management/Query1')}">管理岗查询</a></dd>
-                                    <dd><a lay-href="{:U('Management/Query2')}">工勤岗查询</a></dd>
+                                    <dd><a lay-href="<?php echo U('Management/Query1');?>">管理岗查询</a></dd>
+                                    <dd><a lay-href="<?php echo U('Management/Query2');?>">工勤岗查询</a></dd>
                                 </dl>
                             </dd>
 
                             <dd data-name="import">
-                                <a lay-href="{:U('Management/Import')}">薪资导入</a>
+                                <a lay-href="<?php echo U('Management/Import');?>">薪资导入</a>
                             </dd>
                             <dd data-name="account">
-                                <a lay-href="{:U('Management/AccountManage')}">账号管理</a>
+                                <a lay-href="<?php echo U('Management/AccountManage');?>">账号管理</a>
                             </dd>
                             <dd data-name="exit" layadmin-event="logout">
-                                <a lay-href="{:U('Index/Loginout')}" >
+                                <a lay-href="<?php echo U('Index/Loginout');?>" >
                                     退出系统
                                 </a>
                             </dd>
@@ -126,7 +126,7 @@
             </div>
             <div class="layui-tab" lay-unauto lay-allowClose="true" lay-filter="layadmin-layout-tabs">
                 <ul class="layui-tab-title" id="LAY_app_tabsheader">
-                    <li lay-id="{:U('Management/Console')}" lay-attr="{:U('Management/Console')}" class="layui-this"><i class="layui-icon layui-icon-home"></i>系统首页</li>
+                    <li lay-id="<?php echo U('Management/Console');?>" lay-attr="<?php echo U('Management/Console');?>" class="layui-this"><i class="layui-icon layui-icon-home"></i>系统首页</li>
                 </ul>
             </div>
         </div>
@@ -135,7 +135,7 @@
         <!-- 主体内容 -->
         <div class="layui-body" id="LAY_app_body">
             <div class="layadmin-tabsbody-item layui-show">
-                <iframe src="{:U('Management/Console')}" frameborder="0" class="layadmin-iframe"></iframe>
+                <iframe src="<?php echo U('Management/Console');?>" frameborder="0" class="layadmin-iframe"></iframe>
             </div>
         </div>
 
@@ -144,10 +144,10 @@
     </div>
 </div>
 
-<script src="__PUBLIC__/layuiadmin/layui/layui.js"></script>
+<script src="/hqgz3/Public/layuiadmin/layui/layui.js"></script>
 <script>
     layui.config({
-        base: '__PUBLIC__/layuiadmin/' //静态资源所在路径
+        base: '/hqgz3/Public/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
     }).use('index');

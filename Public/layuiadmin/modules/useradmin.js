@@ -12,25 +12,6 @@ layui.define(['table', 'form'], function(exports){
   var $ = layui.$
   ,table = layui.table
   ,form = layui.form;
-
-  //用户管理
-  table.render({
-    elem: '#LAY-user-manage'
-    ,url: layui.setter.base + 'json/useradmin/webuser.js' //模拟接口
-    ,cols: [[
-      {field: 'username', title: '姓名', minWidth: 100}
-      ,{field: 'department', title: '部门'}
-      ,{field: 'idcard', title: '身份证号'}
-      ,{field: 'type', width: 80, title: '类别'}
-      ,{field: 'auth', title: '权限'}
-      ,{field: 'lasttime', title: '最近登录时间', sort: true}
-      ,{title: '操作', width: 150, align:'center', fixed: 'right', toolbar: '#table-useradmin-webuser'}
-    ]]
-    ,page: true
-    ,limit: 40
-    ,height: 'full-220'
-    ,text: '对不起，加载出现异常！'
-  });
   
   //监听工具条
   table.on('tool(LAY-user-manage)', function(obj){
