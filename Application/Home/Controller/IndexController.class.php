@@ -12,8 +12,9 @@ class IndexController extends Controller {
            $where['密码']=I('password');
            $result = $db->where($where)->find();
            if(($result)){
-               //$this->success('欢迎您登陆', '/Detail/Index',3);
                $_SESSION['idcard']=$where['身份证号'];
+               $data['lasttime'] = date("Y-m-d H:i:s",time());
+               $db->where($where)->save($data);
                $this->ajaxReturn('ok');
            }else{
                $this->ajaxReturn('身份证号或者密码不正确！请核实！');

@@ -15,6 +15,7 @@
     <div class="layui-card">
 
       <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+
         <div class="layui-form-item">
           <div class="layui-col-md1">
             <button class="layui-btn layuiadmin-btn-useradmin" data-type="add">添加</button>
@@ -23,8 +24,8 @@
             <div class="layui-inline">
               <label class="layui-form-label">部门</label>
               <div class="layui-input-block">
-                <select name="dept" lay-verify="">
-                  <option value="">所有账号</option>
+                <select name="dept" lay-verify="" id="dept" lay-filter="dept">
+                  <option value="all" selected>所有账号</option>
                   <?php if(is_array($depts)): $i = 0; $__LIST__ = $depts;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$deptname): $mod = ($i % 2 );++$i;?><option value="<?php echo ($deptname["部门名称"]); ?>"><?php echo ($deptname["部门名称"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
               </div>
@@ -32,30 +33,31 @@
           <div class="layui-inline">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block">
-              <input type="text" name="username" placeholder="请输入" autocomplete="off" class="layui-input">
+              <input type="text" name="username" id="username" placeholder="请输入" autocomplete="off" class="layui-input">
             </div>
           </div>
           <div class="layui-inline">
             <label class="layui-form-label">身份证号码</label>
             <div class="layui-input-block">
-              <input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">
+              <input type="text" name="idcard" id="idcard" placeholder="请输入" autocomplete="off" class="layui-input">
             </div>
           </div>
           <div class="layui-inline">
-            <button class="layui-btn layuiadmin-btn-useradmin" lay-submit lay-filter="LAY-user-front-search">
+            <button class="layui-btn layuiadmin-btn-useradmin"  id="LAY-user-front-search">
               <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
             </button>
           </div></div>
         </div>
+
       </div>
       
       <div class="layui-card-body">
 
         
         <table id="LAY-user-manage" lay-filter="LAY-user-manage"></table>
-        <script type="text/html" id="imgTpl"> 
+<!--        <script type="text/html" id="imgTpl">
           <img style="display: inline-block; width: 50%; height: 100%;" src= {{ d.avatar }}>
-        </script> 
+        </script> -->
         <script type="text/html" id="table-useradmin-webuser">
           <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
           <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>
@@ -70,36 +72,47 @@
     base: '/hqgz3/Public/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
-  }).use(['index',  'table'], function(){
+  }).use(['layer','index', 'table'], function(){
     var $ = layui.$
     ,form = layui.form
-    ,table = layui.table;
+    ,table = layui.table
+            ,layer=layui.layer;
 
     //用户管理
-    table.render({
+ var tableIns =table.render({
       elem: '#LAY-user-manage'
       ,url: "<?php echo U('Adminmanage/Management/Accountlist');?>"//layui.setter.base + 'json/useradmin/webuser.js' //模拟接口
       ,cols: [[
        {field: '姓名', title: '姓名', minWidth: 100}
         ,{field: '部门名称', title: '部门'}
         ,{field: '身份证号', title: '身份证号'}
-        ,{field: '类别', width: 80, title: '类别'}
-        ,{field: '权限', title: '权限'}
+        ,{field: 'aliasname', width: 80, title: '类别'}
+        ,{field: 'authname', title: '权限'}
         ,{field: 'lasttime', title: '最近登录时间', sort: true}
         ,{title: '操作', width: 150, align:'center', fixed: 'right', toolbar: '#table-useradmin-webuser'}
       ]]
       ,page: true
-      ,limit: 50
-      ,height: 'full-220'
+      ,limit: 30
+      ,toolbar:'default'
+      ,height: 'full-160'
+        ,loading:true
+        ,title:'账号管理表'
       ,text: '加载出现异常！'
-    });
-    //监听搜索
-    form.on('submit(LAY-user-front-search)', function(data){
-      var field = data.field;
+      ,where:{dept:'all'}
 
-      //执行重载
-      table.reload('LAY-user-manage', {
-        where: field
+    });
+    //监听查询按钮
+    $(document).on('click','#LAY-user-front-search',function(){
+     //重载数据窗口
+      tableIns.reload({
+        where: { //设定异步数据接口的额外参数，任意设
+          dept: $('#dept').val()
+          ,username:$('#username').val()
+          ,idcard:$('#idcard').val()
+        }
+        ,page: {
+          curr: 1 //重新从第 1 页开始
+        }
       });
     });
   
@@ -137,9 +150,9 @@
         layer.open({
           type: 2
           ,title: '添加用户'
-          ,content: 'userform.html'
+          ,content: "<?php echo U('Adminmanage/Management/Adduser');?>"
           ,maxmin: true
-          ,area: ['500px', '450px']
+          ,area: ['460px', '480px']
           ,btn: ['确定', '取消']
           ,yes: function(index, layero){
             var iframeWindow = window['layui-layer-iframe'+ index]
@@ -149,10 +162,21 @@
             //监听提交
             iframeWindow.layui.form.on('submit('+ submitID +')', function(data){
               var field = data.field; //获取提交的字段
-              
+
               //提交 Ajax 成功后，静态更新表格中的数据
-              //$.ajax({});
-              table.reload('LAY-user-front-submit'); //数据刷新
+              $.ajax({
+                type:'POST',
+                url:"<?php echo U('Adminmanage/Management/Addusersubmit');?>",
+                data:field,
+                success:function(data){
+                   layer.msg(data);
+                },
+                error:function(jqXHR){
+                  layer.msg('添加失败，身份证检查出重复',{icon:5});
+                }
+
+              });
+              tableIns.reload('LAY-user-front-submit'); //数据刷新
               layer.close(index); //关闭弹层
             });  
             
