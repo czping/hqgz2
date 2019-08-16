@@ -59,6 +59,12 @@ class ManagementController extends Controller {
             $this->ajaxReturn($data);
     }
     }
+    public function Edituser(){
+        $db=M('accounts');
+        $depts=$db->group('部门名称')->order('部门名称 asc')->field('部门名称')->select();
+        $this->assign("depts",$depts);
+        $this->display('User/User/Edituserform');
+    }
     public function Adduser(){
         $db=M('accounts');
         $depts=$db->group('部门名称')->order('部门名称 asc')->field('部门名称')->select();

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="__PUBLIC__/layuiadmin/layui/css/layui.css" media="all">
+</head>
+<body>
+
+  <div class="layui-form" lay-filter="layuiadmin-form-useradmin" id="layuiadmin-form-useradmin"
+       style="padding: 20px 0 0 0;">
+    <div class="layui-form-item">
+      <label class="layui-form-label">部门</label>
+      <div class="layui-input-inline">
+        <select name="dept" lay-verify="">
+          <volist name="depts" id="deptname">
+            <option value="{$deptname.部门名称}">{$deptname.部门名称}</option>
+          </volist>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">用户名</label>
+      <div class="layui-input-inline">
+        <input type="text" name="username" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">身份证号码</label>
+      <div class="layui-input-inline">
+        <input type="text" name="idcard" lay-verify="identity" placeholder="请输入身份证号码" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">类别</label>
+      <div class="layui-input-inline">
+        <select name="type" lay-verify="">
+          <option value="1">管理岗</option>
+          <option value="2">工勤岗</option>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">权限</label>
+      <div class="layui-input-inline">
+        <select name="auth" lay-verify="">
+          <option value="1">普通员工</option>
+          <option value="2">部门内勤</option>
+          <option value="3">部门领导</option>
+          <option value="4">管理员</option>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item layui-hide">
+      <input type="button" lay-submit lay-filter="LAY-user-front-submit" id="LAY-user-front-submit" value="确认">
+    </div>
+  </div>
+
+  <script src="__PUBLIC__/layuiadmin/layui/layui.js"></script>
+  <script>
+  layui.config({
+    base: '__PUBLIC__/layuiadmin/' //静态资源所在路径
+  }).extend({
+    index: 'lib/index' //主入口模块
+  }).use(['index', 'form', 'upload'], function(){
+    var $ = layui.$
+    ,form = layui.form;
+
+
+  })
+  </script>
+</body>
+</html>
