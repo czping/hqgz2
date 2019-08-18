@@ -24,24 +24,25 @@
                     <div class="layui-form">
                         <div class="layui-form-item">
                             <div class="layui-inline">
-                                <label class="layui-form-label">部门选择</label>
-                                <div class="layui-input-inline">
-                                    <select name="dept">
-                                        <option value="0" selected="">全部</option>
-                                        <option value="1" >经济部</option>
-                                        <option value="2">信息办</option>
-                                        <option value="3">综合办</option>
+                                <label class="layui-form-label">部门</label>
+                                <div class="layui-input-block">
+                                    <select name="dept" lay-verify="" id="dept" lay-filter="dept">
+                                        <option value="all" selected>所有账号</option>
+                                        <volist name="depts" id="deptname">
+                                            <option value="{$deptname.部门名称}">{$deptname.部门名称}</option>
+                                        </volist>
                                     </select>
                                 </div>
                             </div>
                             <div class="layui-inline">
                                 <label class="layui-form-label">选择时间</label>
                                 <div class="layui-input-inline">
-                                    <select name="dates">
-                                        <option value="201907" selected="">2019年07月</option>
-                                        <option value="201906" >2019年06月</option>
-                                        <option value="201905">2019年05月</option>
-                                        <option value="201904">2019年04月</option>
+                                    <select name="dates" lay-verify="required" lay-filter="dates">
+                                        <volist name="result_dates" id="data">
+                                            <option value="{$data.年份}{$data.月份}"
+                                            <?php if($result_value['年份']==$data['年份'] && $data['月份']==$result_value['月份']) {echo "selected=''";}?>
+                                            >{$data.年份}年{$data.月份}月</option>
+                                        </volist>
                                     </select>
                                 </div>
                             </div>

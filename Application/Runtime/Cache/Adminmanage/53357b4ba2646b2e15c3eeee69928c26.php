@@ -24,24 +24,21 @@
                     <div class="layui-form">
                         <div class="layui-form-item">
                             <div class="layui-inline">
-                                <label class="layui-form-label">部门选择</label>
-                                <div class="layui-input-inline">
-                                    <select name="dept">
-                                        <option value="0" selected="">全部</option>
-                                        <option value="1" >经济部</option>
-                                        <option value="2">信息办</option>
-                                        <option value="3">综合办</option>
+                                <label class="layui-form-label">部门</label>
+                                <div class="layui-input-block">
+                                    <select name="dept" lay-verify="" id="dept" lay-filter="dept">
+                                        <option value="all" selected>所有账号</option>
+                                        <?php if(is_array($depts)): $i = 0; $__LIST__ = $depts;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$deptname): $mod = ($i % 2 );++$i;?><option value="<?php echo ($deptname["部门名称"]); ?>"><?php echo ($deptname["部门名称"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="layui-inline">
                                 <label class="layui-form-label">选择时间</label>
                                 <div class="layui-input-inline">
-                                    <select name="dates">
-                                        <option value="201907" selected="">2019年07月</option>
-                                        <option value="201906" >2019年06月</option>
-                                        <option value="201905">2019年05月</option>
-                                        <option value="201904">2019年04月</option>
+                                    <select name="dates" lay-verify="required" lay-filter="dates">
+                                        <?php if(is_array($result_dates)): $i = 0; $__LIST__ = $result_dates;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?><option value="<?php echo ($data["年份"]); echo ($data["月份"]); ?>"
+                                            <?php if($result_value['年份']==$data['年份'] && $data['月份']==$result_value['月份']) {echo "selected=''";}?>
+                                            ><?php echo ($data["年份"]); ?>年<?php echo ($data["月份"]); ?>月</option><?php endforeach; endif; else: echo "" ;endif; ?>
                                     </select>
                                 </div>
                             </div>
