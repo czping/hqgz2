@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="__PUBLIC__/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/hqgz3/Public/layui/css/layui.css" media="all">
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
     <style>
         .footer {
@@ -41,7 +41,7 @@
 
 
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-    <legend>{$result_value['年份']}年{$result_value['月份']}月{$result_value['姓名']}的薪资明细</legend>
+    <legend><?php echo ($result_value['年份']); ?>年<?php echo ($result_value['月份']); ?>月<?php echo ($result_value['姓名']); ?>的薪资明细</legend>
 </fieldset>
 <div class="layui-row">
     <div class="layui-col-md1 layui-col-md-offset1">
@@ -56,63 +56,38 @@
 ">
             <table class="layui-table" lay-even="" >
                 <?php $num=0;$value_array=array();?>
-                <foreach name="result_field" item="field" key="key">
-                    <in name="field" value="性别,部门编号,班组编号,班组名称,人员类别,人数,类别名称,审核人,身份证号,卡号,审核标志,分类标志">
-                        <?php continue;?>
-                    </in>
-                    <if condition="$key elt 14">
-                        <if condition="$key eq 0">
-                            <thead>
-                            <tr>
-                        </if>
-                        <if condition="$key elt 14">
-                            <th><?php echo $field;?></th>
-                            <if condition="$key lt 14">
-                                <?php array_push($value_array,$field);continue;?>
-                                <else/>
+                <?php if(is_array($result_field)): foreach($result_field as $key=>$field): if(in_array(($field), explode(',',"性别,部门编号,班组编号,班组名称,人员类别,人数,类别名称,审核人,身份证号,卡号,审核标志,分类标志"))): continue; endif; ?>
+                    <?php if($key <= 14): if($key == 0): ?><thead>
+                            <tr><?php endif; ?>
+                        <?php if($key <= 14): ?><th><?php echo $field;?></th>
+                            <?php if($key < 14): array_push($value_array,$field);continue;?>
+                                <?php else: ?>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php array_push($value_array,$field);?>
-                            </if>
-
-                        </if>
+                                <?php array_push($value_array,$field); endif; endif; ?>
                         <tr>
-                            <foreach name="value_array" item="field_value" key="key2">
-                                <th><?php echo $result_value["$field_value"];?></th>
-                            </foreach>
+                            <?php if(is_array($value_array)): foreach($value_array as $key2=>$field_value): ?><th><?php echo $result_value["$field_value"];?></th><?php endforeach; endif; ?>
                             <?php $value_array=array();?>
                         </tr>
                         
-                        <else/>
-                        <if condition="$num eq 0">
-                            <tr>
-                        </if>
-                        <if condition="($field eq '应发') or ($field eq '卡发') ">
-                            <th style="background: #90d4f5;">
+                        <?php else: ?>
+                        <?php if($num == 0): ?><tr><?php endif; ?>
+                        <?php if(($field == '应发') or ($field == '卡发') ): ?><th style="background: #90d4f5;">
                                 <?php echo $field;$num++;array_push($value_array,$field)?>
                                     
                                 </th>
-                                <else/>
+                                <?php else: ?>
                                  <th >
                                 <?php echo $field;$num++;array_push($value_array,$field)?>
                                     
-                                </th>
-                            </if>
-                        <if condition="($num eq 6) or ($field eq '唯一标识')">
-                            </tr>
+                                </th><?php endif; ?>
+                        <?php if(($num == 6) or ($field == '唯一标识')): ?></tr>
                             <?php $num=0;?>
                             <tr>
-                            <foreach name="value_array" item="field_value" key="key2"> 
-                                <th><?php echo $result_value["$field_value"];?></th>
-                            </foreach>
+                            <?php if(is_array($value_array)): foreach($value_array as $key2=>$field_value): ?><th><?php echo $result_value["$field_value"];?></th><?php endforeach; endif; ?>
                             <?php $value_array=array();?>
-                        </tr>
-                        </if>
-                    </if>
-
-
-                </foreach>
+                        </tr><?php endif; endif; endforeach; endif; ?>
 
 
                 </tbody>
@@ -127,8 +102,8 @@
 
 
 </div>
-<script src="__PUBLIC__/layui/layui.js"></script>
-<script src="__PUBLIC__/layui/jquery.min.js"></script>
+<script src="/hqgz3/Public/layui/layui.js"></script>
+<script src="/hqgz3/Public/layui/jquery.min.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
     //Demo
@@ -140,7 +115,7 @@
         });
     });
     $(document).on('click','#btn',function(){
-        window.location.href = "{:U('Index/Loginout')}";
+        window.location.href = "<?php echo U('Index/Loginout');?>";
     });
 </script>
 

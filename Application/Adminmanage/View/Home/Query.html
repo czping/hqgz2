@@ -35,7 +35,7 @@
                             <div class="layui-inline">
                                 <label class="layui-form-label">选择时间</label>
                                 <div class="layui-input-inline">
-                                    <select name="dates" lay-verify="required" lay-filter="dates">
+                                    <select name="dates" id="dates" lay-verify="required" lay-filter="dates">
                                         <volist name="result_dates" id="data">
                                             <option value="{$data.年份}{$data.月份}"
                                             <?php if($result_value['年份']==$data['年份'] && $data['月份']==$result_value['月份']) {echo "selected=''";}?>
@@ -47,7 +47,7 @@
                             <div class="layui-inline">
                                 <label class="layui-form-label">姓名搜索</label>
                                 <div class="layui-input-inline">
-                                    <input type="tel" name="username" lay-verify="required" autocomplete="off"
+                                    <input type="text" name="username" id="username" autocomplete="off"
                                            class="layui-input">
                                 </div>
                                 <div class="layui-input-inline">
@@ -67,11 +67,11 @@
                     <table class="layui-hide" id="test-table-toolbar" lay-filter="test-table-toolbar"></table>
                     <script type="text/html" id="test-table-toolbar-toolbarDemo">
                         <div>
-                            当前选择为"全部"职工"2019年07月"薪资
+                            当前列表显示："<span id="showdept" style="color:red">所有部门</span>"的薪资
                         </div>
                     </script>
                     <script type="text/html" id="test-table-toolbar-barDemo">
-                        <a class="layui-btn layui-btn-xs" lay-event="edit">查看详请</a>
+                        <a class="layui-btn layui-btn-xs" lay-event="detail">查看详请</a>
 
                     </script>
                 </div>
@@ -86,11 +86,14 @@
         base: '__PUBLIC__/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'table'], function () {
-        var admin = layui.admin
-            , table = layui.table;
+    }).use(['index', 'table','form'], function () {
+        var $ = layui.$
+            ,admin = layui.admin
+            ,table = layui.table
+            ,form=layui.form
+            ,element = layui.element;
 
-        table.render({
+        var tableIns =  table.render({
             elem: '#test-table-toolbar'
             , url: "{:U('Adminmanage/Management/Managementlist')}"
             , toolbar: '#test-table-toolbar-toolbarDemo'
@@ -119,9 +122,25 @@
             ]]
             , page: true
             , limit: 40
-            , height: 'full-220'
+            , height: 'full-160'
+            , loading: true
             , text: '对不起，加载出现异常！'
             , where: {dept: 'all'}
+        });
+
+        form.on('submit(LAY-user-front-search)',function () {
+            //重载数据窗口
+            tableIns.reload({
+                where: { //设定异步数据接口的额外参数，任意设
+                    dept: $('#dept').val()
+                    , username: $('#username').val()
+                    , dates:$('#dates').val()
+                }
+                , page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+            });
+            $('#showdept').html($('#dept').val()+" "+$('#dates').val());
         });
 
         //头工具栏事件
@@ -146,21 +165,11 @@
         //监听行工具事件
         table.on('tool(test-table-toolbar)', function (obj) {
             var data = obj.data;
-            if (obj.event === 'del') {
-                layer.confirm('真的删除行么', function (index) {
-                    obj.del();
-                    layer.close(index);
-                });
-            } else if (obj.event === 'edit') {
-                layer.prompt({
-                    formType: 2
-                    , value: data.email
-                }, function (value, index) {
-                    obj.update({
-                        email: value
-                    });
-                    layer.close(index);
-                });
+            if (obj.event === 'detail') {
+                console.log(data);
+
+                    /* 新增一个Tab项 */
+                top.layui.index.openTabsPage('Userdetail?idcard='+data['身份证号']+'&year='+data['年份']+'&month='+data['月份'],data['姓名']+data['年份']+'年'+data['月份']+'月明细');
             }
         });
 

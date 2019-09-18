@@ -23,7 +23,7 @@
                         <label class="layui-form-label">部门</label>
                         <div class="layui-input-block">
                             <select name="dept" lay-verify="" id="dept" lay-filter="dept">
-                                <option value="all" selected>所有账号</option>
+                                <option value="all" selected>所有部门</option>
                                 <?php if(is_array($depts)): $i = 0; $__LIST__ = $depts;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$deptname): $mod = ($i % 2 );++$i;?><option value="<?php echo ($deptname["部门名称"]); ?>"><?php echo ($deptname["部门名称"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                             </select>
                         </div>
@@ -90,7 +90,7 @@
         var tableIns = table.render({
             id: 'idTest',
             elem: '#LAY-user-manage'
-            , url: "<?php echo U('Adminmanage/Management/Accountlist');?>"//layui.setter.base + 'json/useradmin/webuser.js' //模拟接口
+            , url: "<?php echo U('Adminmanage/Management/Accountlist');?>"
             , cols: [[
                 {field: 'aid', title: 'ID', width: 80,sort: true}
                 ,{field: '姓名', title: '姓名', minWidth: 100,sort: true}

@@ -1,0 +1,107 @@
+[ 2019-08-18T16:41:40+08:00 ] ::1 /hqgz3/index.php/adminmanage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002433s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000952s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000675s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000731s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012977s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013040s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000632s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000675s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001195s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001240s ]
+
+[ 2019-08-18T16:41:42+08:00 ] ::1 /hqgz3/index.php/Adminmanage/Index/Logincheck.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000462s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+SQL: SHOW COLUMNS FROM `gz_accounts` [ RunTime:0.0138s ]
+SQL: SELECT * FROM `gz_accounts` WHERE `身份证号` = '321111198004142919' AND `密码` = '142919' AND `权限` = 1 LIMIT 1   [ RunTime:0.0061s ]
+
+[ 2019-08-18T16:41:42+08:00 ] ::1 /hqgz3/index.php/Adminmanage/Management/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000362s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000130s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007105s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007141s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000159s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000180s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000798s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000833s ]
+
+[ 2019-08-18T16:41:42+08:00 ] ::1 /hqgz3/index.php/Adminmanage/Management/Console.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003522s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000691s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000753s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000107s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015772s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015827s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000711s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000753s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001117s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001771s ]
+
+[ 2019-08-18T16:41:44+08:00 ] ::1 /hqgz3/index.php/Adminmanage/Management/Query1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000381s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000615s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000654s ]
+SQL: SHOW COLUMNS FROM `gz_accounts` [ RunTime:0.0004s ]
+SQL: SELECT `部门名称` FROM `gz_accounts` GROUP BY 部门名称 ORDER BY 部门名称 asc  [ RunTime:0.0033s ]
+SQL: SHOW COLUMNS FROM `gz_management` [ RunTime:0.0024s ]
+SQL: SELECT `年份`,`月份` FROM `gz_management` GROUP BY 年份,月份 ORDER BY 年份 desc,月份 desc  [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+NOTIC: [8] Undefined variable: result_value /Users/zhangping/PhpstormProjects/hqgz2/hqgz3/Application/Runtime/Cache/Adminmanage/5cc1dfbbbd6d21db6ac9b38ec2251586.php 第 38 行.
+NOTIC: [8] Undefined variable: result_value /Users/zhangping/PhpstormProjects/hqgz2/hqgz3/Application/Runtime/Cache/Adminmanage/5cc1dfbbbd6d21db6ac9b38ec2251586.php 第 38 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014021s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014064s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000156s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000176s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003719s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003765s ]
+
+[ 2019-08-18T16:41:44+08:00 ] ::1 /hqgz3/index.php/Adminmanage/Management/Managementlist.html?page=1&limit=40&dept=all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000356s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+SQL: SHOW COLUMNS FROM `gz_management` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gz_management` WHERE `年份` = '2019' ORDER BY 月份 desc LIMIT 0,40   [ RunTime:0.0032s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gz_management` WHERE `年份` = '2019' LIMIT 1   [ RunTime:0.0030s ]
+
