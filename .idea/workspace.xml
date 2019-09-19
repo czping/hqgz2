@@ -2,15 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57b3fcaa-9b09-405f-a289-9c3783d56b98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Adminmanage/Controller/ManagementController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Adminmanage/Controller/ManagementController.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Adminmanage/View/Home/Query.html" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Adminmanage/View/Home/Query.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Adminmanage/View/Home/Query2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Adminmanage/View/Home/Query2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Adminmanage/View/Home/Userdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Adminmanage/View/Home/Userdetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Adminmanage/View/User/User/List.html" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Adminmanage/View/User/User/List.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/03c7c0ede486c45cdd433fa496b85f66.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/03c7c0ede486c45cdd433fa496b85f66.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/53357b4ba2646b2e15c3eeee69928c26.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/53357b4ba2646b2e15c3eeee69928c26.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/Conf/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Conf/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/09b51004c86ee6e403e7668b1e28cffd.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/1623f0e0712c2e3208a338a006d7af0b.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/1623f0e0712c2e3208a338a006d7af0b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/20914c0f075f91df3579ffbdf5180b02.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/4de3e5f71f09fb2f54f92d1147ebfa38.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/5cc1dfbbbd6d21db6ac9b38ec2251586.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/5cc1dfbbbd6d21db6ac9b38ec2251586.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/62d41fa94ed2dac5e2989be50f3ab81e.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/8a56c3ec152d7d5dbd18f35609236513.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/e7d7a2697460b5b7bb1da57575545bab.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Adminmanage/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Home/240052e49e3a051bd23680dcea2ae186.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Cache/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Data/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Adminmanage/19_08_17.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Adminmanage/19_09_18.log" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Adminmanage/19_09_18.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Adminmanage/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Common/19_07_20.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Common/19_07_28.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Common/19_08_01.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/19_07_19.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/19_07_20.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/19_07_26.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/19_07_28.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/19_08_01.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/19_08_05.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/19_08_15.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Logs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/Temp/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Runtime/index.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +57,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Application/Adminmanage/View/Home" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -77,6 +103,10 @@
       <workItem from="1565883380303" duration="396000" />
       <workItem from="1565924708688" duration="6618000" />
       <workItem from="1568729515242" duration="8443000" />
+      <workItem from="1568787091536" duration="918000" />
+      <workItem from="1568870716789" duration="2170000" />
+      <workItem from="1568874012491" duration="220000" />
+      <workItem from="1568875187817" duration="2020000" />
     </task>
     <servers />
   </component>
@@ -88,7 +118,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

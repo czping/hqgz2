@@ -216,23 +216,30 @@ class ManagementController extends Controller
     {
         $this->display('Set/User/Password');
     }
+    /*
+    查询个人的工资明细
+    */
     public function userdetail(){
         $db=M('Management');
         $where['身份证号']=I('get.idcard');
         $where['年份'] =  I('get.year');
         $where['月份'] =  I('get.month');
-
         $result_value = $db->where($where)->find();
-
         if ($result_value) { //管理岗里找记录
             $result_filed=$db->getDbFields();
         }else{
             $db2=M('Workers');//到工勤库里找
             $result_value = $db2->where($where)->find();
             $result_filed=$db2->getDbFields(); }
-        $this->assign('result_dates',$result_dates);
         $this->assign('result_field',$result_filed);
         $this->assign('result_value',$result_value);
         $this->display('Home/Userdetail');
+    }
+    /*
+     * 导入excel处理
+     */
+    public function execlfile()
+    {
+
     }
 }

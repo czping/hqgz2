@@ -56,11 +56,11 @@
 ">
             <table class="layui-table" lay-even="" >
                 <?php $num=0;$value_array=array();?>
-                <?php if(is_array($result_field)): foreach($result_field as $key=>$field): if(in_array(($field), explode(',',"性别,部门编号,班组编号,班组名称,人员类别,人数,类别名称,审核人,身份证号,卡号,审核标志,分类标志"))): continue; endif; ?>
-                    <?php if($key <= 14): if($key == 0): ?><thead>
+                <?php if(is_array($result_field)): foreach($result_field as $key=>$field): if(in_array(($field), explode(',',"ID,性别,部门编号,班组编号,班组名称,人员类别,人数,类别名称,审核人,身份证号,卡号,审核标志,分类标志"))): continue; endif; ?>
+                    <?php if($key <= 15): if($key == 1): ?><thead>
                             <tr><?php endif; ?>
-                        <?php if($key <= 14): ?><th><?php echo $field;?></th>
-                            <?php if($key < 14): array_push($value_array,$field);continue;?>
+                        <?php if($key <= 15): ?><th><?php echo $field;?></th>
+                            <?php if($key < 15): array_push($value_array,$field);continue;?>
                                 <?php else: ?>
                                 </tr>
                                 </thead>

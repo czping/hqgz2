@@ -57,17 +57,17 @@
             <table class="layui-table" lay-even="" >
                 <?php $num=0;$value_array=array();?>
                 <foreach name="result_field" item="field" key="key">
-                    <in name="field" value="性别,部门编号,班组编号,班组名称,人员类别,人数,类别名称,审核人,身份证号,卡号,审核标志,分类标志">
+                    <in name="field" value="ID,性别,部门编号,班组编号,班组名称,人员类别,人数,类别名称,审核人,身份证号,卡号,审核标志,分类标志">
                         <?php continue;?>
                     </in>
-                    <if condition="$key elt 14">
-                        <if condition="$key eq 0">
+                    <if condition="$key elt 15">
+                        <if condition="$key eq 1">
                             <thead>
                             <tr>
                         </if>
-                        <if condition="$key elt 14">
+                        <if condition="$key elt 15">
                             <th><?php echo $field;?></th>
-                            <if condition="$key lt 14">
+                            <if condition="$key lt 15">
                                 <?php array_push($value_array,$field);continue;?>
                                 <else/>
                                 </tr>
